@@ -1,0 +1,731 @@
+
+/* ==================================
+   GLOBAL SETTINGS
+================================== */
+
+:root {
+    --navy: #10243b;
+    --navy-light: #193957;
+    --azure: #1687e8;
+    --azure-light: #eaf4ff;
+    --white: #ffffff;
+    --background: #f5f8fc;
+    --text: #263445;
+    --muted: #65758a;
+    --border: #dce5ef;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+/* ==================================
+   NAVIGATION
+================================== */
+
+.header {
+    background: var(--navy);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    min-height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--white);
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: #42a5ff;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 23px;
+}
+
+.nav-links a {
+    color: #e2eaf4;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #55adff;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+/* ==================================
+   HERO SECTION
+================================== */
+
+.hero {
+    background: linear-gradient(
+        125deg,
+        #10243b,
+        #174b78
+    );
+    color: var(--white);
+    padding: 105px 0;
+}
+
+.hero-content {
+    max-width: 1000px;
+}
+
+.eyebrow,
+.section-label {
+    color: var(--azure);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.hero .eyebrow {
+    color: #75baff;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 6vw, 58px);
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.hero h2 {
+    font-size: clamp(20px, 3vw, 30px);
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.hero-description {
+    color: #d6e7f7;
+    font-size: 17px;
+    max-width: 750px;
+}
+
+.experience-stats {
+    display: flex;
+    gap: 65px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.experience-stats div {
+    display: flex;
+    flex-direction: column;
+}
+
+.experience-stats strong {
+    font-size: 38px;
+    color: #5db2ff;
+}
+
+.experience-stats span {
+    color: #d6e7f7;
+    font-size: 14px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: var(--azure);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #0872cd;
+}
+
+.btn-outline {
+    border: 1px solid white;
+    color: white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--navy);
+}
+
+/* ==================================
+   GENERAL SECTIONS
+================================== */
+
+.section {
+    padding: 85px 0;
+}
+
+.section-alt {
+    background: var(--background);
+}
+
+.section-title {
+    color: var(--navy);
+    font-size: 34px;
+    margin-bottom: 30px;
+}
+
+.section-description {
+    color: var(--muted);
+    font-size: 16px;
+    margin-bottom: 18px;
+    max-width: 1000px;
+}
+
+/* ==================================
+   SKILLS
+================================== */
+
+.skills-grid,
+.projects-grid,
+.certification-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.skill-card,
+.project-card,
+.certification-card {
+    background: white;
+    padding: 27px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.skill-card:hover,
+.project-card:hover,
+.certification-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--azure);
+    box-shadow: 0 8px 25px rgba(16, 36, 59, 0.08);
+}
+
+.skill-card h3,
+.project-card h3,
+.certification-card h3 {
+    color: var(--navy);
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.skill-card p,
+.project-card p,
+.certification-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.project-card span {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 5px 10px;
+    background: var(--azure-light);
+    color: #1264a4;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ==================================
+   EXPERIENCE TIMELINE
+================================== */
+
+.timeline {
+    border-left: 3px solid var(--azure);
+    padding-left: 30px;
+    margin-left: 10px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -39px;
+    top: 7px;
+    width: 14px;
+    height: 14px;
+    background: var(--azure);
+    border: 3px solid white;
+    border-radius: 50%;
+}
+
+.timeline-item h3 {
+    color: var(--navy);
+    font-size: 19px;
+}
+
+.timeline-item p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.job-title {
+    color: var(--azure) !important;
+    font-weight: 700;
+    margin: 5px 0 10px;
+}
+
+/* ==================================
+   CERTIFICATIONS
+================================== */
+
+.education {
+    margin-top: 30px;
+    color: var(--muted);
+}
+
+/* ==================================
+   CONTACT
+================================== */
+
+.contact-section {
+    background: var(--navy);
+    color: white;
+}
+
+.contact-section .section-title {
+    color: white;
+}
+
+.contact-section > .container > p:not(.section-label) {
+    color: #d6e7f7;
+    margin-bottom: 25px;
+}
+
+.contact-details p {
+    margin: 12px 0;
+    color: #d6e7f7;
+}
+
+.contact-details a {
+    color: #65b8ff;
+}
+
+/* ==================================
+   FOOTER
+================================== */
+
+.footer {
+    background: #091827;
+    color: #cbd5e1;
+    text-align: center;
+    padding: 25px 0;
+    font-size: 13px;
+}
+
+/* ==================================
+   RESPONSIVE DESIGN
+================================== */
+
+@media (max-width: 900px) {
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .skills-grid,
+    .projects-grid,
+    .certification-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+
+    .navbar {
+        position: relative;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: var(--navy);
+        flex-direction: column;
+        padding: 20px 5%;
+        gap: 15px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero {
+        padding: 70px 0;
+    }
+
+    .experience-stats {
+        gap: 25px;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .skills-grid,
+    .projects-grid,
+    .certification-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+}
+
+/* ==================================
+   AZURE INFRASTRUCTURE PROJECTS
+================================== */
+
+.azure-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.azure-project-card {
+    background: #ffffff;
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.azure-project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--azure);
+    box-shadow: 0 10px 30px rgba(16, 36, 59, 0.10);
+}
+
+.project-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background: var(--azure-light);
+    color: var(--azure);
+    border-radius: 8px;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.azure-project-card h3 {
+    color: var(--navy);
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.project-overview {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 22px;
+}
+
+.azure-project-card h4 {
+    color: var(--navy);
+    font-size: 15px;
+    margin: 18px 0 10px;
+}
+
+.azure-project-card ul {
+    padding-left: 20px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.azure-project-card li {
+    margin-bottom: 8px;
+}
+
+.technology-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.technology-tags span {
+    background: var(--azure-light);
+    color: #1264a4;
+    padding: 6px 11px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Responsive Azure project cards */
+
+@media (max-width: 800px) {
+
+    .azure-projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* ==================================
+   POWERSHELL AUTOMATION PROJECTS
+================================== */
+
+.automation-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.automation-card {
+    background: #ffffff;
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: 0.3s ease;
+}
+
+.automation-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--azure);
+    box-shadow: 0 10px 30px rgba(16, 36, 59, 0.10);
+}
+
+.automation-card h3 {
+    color: var(--navy);
+    font-size: 20px;
+    margin-bottom: 14px;
+}
+
+.automation-card p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.automation-card h4 {
+    color: var(--navy);
+    font-size: 15px;
+    margin: 18px 0 10px;
+}
+
+.automation-card ul {
+    padding-left: 20px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.automation-card li {
+    margin-bottom: 8px;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 22px;
+    color: var(--azure);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.project-link:hover {
+    color: var(--navy);
+    text-decoration: underline;
+}
+
+/* Responsive layout */
+
+@media (max-width: 800px) {
+
+    .automation-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* Professional Experience Page */
+
+.experience-section {
+    margin-top: 55px;
+}
+
+.experience-section h2 {
+    color: #142d4e;
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.section-description {
+    color: #667085;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.experience-list {
+    display: grid;
+    gap: 22px;
+}
+
+.experience-card {
+    background: #ffffff;
+    border: 1px solid #e4eaf1;
+    border-left: 4px solid #1683e8;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 14px rgba(20, 45, 78, 0.05);
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.experience-card h3 {
+    color: #142d4e;
+    font-size: 21px;
+    margin: 0 0 6px;
+}
+
+.experience-card h4 {
+    color: #1683e8;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.experience-date {
+    color: #475467;
+    background: #eef5fc;
+    padding: 7px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.experience-client {
+    color: #667085;
+    font-size: 14px;
+    margin: 15px 0;
+}
+
+.experience-card ul {
+    padding-left: 21px;
+    margin-bottom: 0;
+}
+
+.experience-card li {
+    color: #526174;
+    line-height: 1.75;
+    margin-bottom: 8px;
+}
+
+.earlier-experience {
+    margin-top: 65px;
+}
+
+.compact-experience {
+    padding: 22px 25px;
+}
+
+.compact-experience li:last-child {
+    margin-bottom: 0;
+}
+
+/* Mobile layout */
+
+@media (max-width: 768px) {
+    .experience-section {
+        margin-top: 40px;
+    }
+
+    .experience-section h2 {
+        font-size: 23px;
+    }
+
+    .experience-card {
+        padding: 19px;
+    }
+
+    .experience-header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .experience-date {
+        display: inline-block;
+    }
+
+    .experience-card h3 {
+        font-size: 19px;
+    }
+
+    .experience-card li {
+        font-size: 14px;
+    }
+}
