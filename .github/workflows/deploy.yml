@@ -1,0 +1,66 @@
+
+name: Portfolio CI-CD - GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+
+  deploy:
+    name: Validate and Deploy Portfolio
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+
+      # Step 1: Download repository files
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+
+      # Step 2: Validate required website files
+      - name: Validate Portfolio Files
+        run: |
+          echo "Starting portfolio file validation..."
+
+          test -f index.html
+          test -f about.html
+          test -f azure-projects.html
+          test -f automation.html
+          test -f experience.html
+          test -f certifications.html
+          test -f contact.html
+          test -f assets/css/style.css
+          test -f assets/js/script.js
+
+          echo "All required portfolio files are present."
+
+      # Step 3: Configure GitHub Pages
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      # Step 4: Upload website files
+      - name: Upload Website Artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '.'
+
+      # Step 5: Deploy website
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
