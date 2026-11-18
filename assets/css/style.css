@@ -896,3 +896,109 @@ a {
         height: 52px;
     }
 }
+
+
+/* =====================================
+   CONTACT PAGE
+===================================== */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.contact-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--azure);
+    border-radius: 9px;
+    padding: 28px;
+    box-shadow: 0 4px 14px rgba(20, 45, 78, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contact-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--azure-light);
+    color: var(--azure);
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.contact-card h2 {
+    color: var(--navy);
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.contact-card p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.75;
+    margin-bottom: 20px;
+}
+
+.contact-card a {
+    color: var(--azure);
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    margin-top: auto;
+}
+
+.contact-card a:hover {
+    text-decoration: underline;
+}
+
+.contact-message {
+    margin-top: 60px;
+    padding: 30px;
+    background: var(--background);
+    border-left: 4px solid var(--azure);
+    border-radius: 6px;
+}
+
+.contact-message h2 {
+    color: var(--navy);
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.contact-message p {
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+/* Contact page responsive layout */
+
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+        padding: 22px;
+    }
+
+    .contact-message {
+        padding: 22px;
+    }
+}
